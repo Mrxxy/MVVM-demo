@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.goldmantis.mvvm.app.ui.LoginViewModel" />
+
+        <variable
+            name="click"
+            type="com.goldmantis.mvvm.app.ui.LoginActivity.ClickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        tools:context=".ui.LoginActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="登录"
+            android:textColor="#333333"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="账号"
+            android:inputType="text"
+            android:text="@={viewModel.userName}"
+            android:textColor="#333333"
+            android:textColorHint="#888888"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:text="@={viewModel.password}"
+            android:textColor="#333333"
+            android:textColorHint="#888888"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/et_account" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:onClick="@{()->click.login()}"
+            android:text="登录"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/et_pwd" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
