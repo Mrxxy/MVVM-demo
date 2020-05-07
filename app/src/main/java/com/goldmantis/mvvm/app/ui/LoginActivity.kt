@@ -15,7 +15,6 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
 
     override fun getDataBindingConfig(): DataBindingConfig {
         return DataBindingConfig(BR.viewModel, R.layout.activity_login)
-            .addBindingParam(BR.click, ClickProxy())
     }
 
     override fun initData() {
@@ -30,16 +29,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
                     Log.d(TAG, "hide loading")
                 }
             })
-        }
-    }
-
-    open inner class ClickProxy {
-        fun login() {
-            when {
-                mViewModel.userName.get().isNullOrEmpty() -> showMessage("请输入用户名")
-                mViewModel.password.get().isNullOrEmpty() -> showMessage("请输入密码")
-                else -> mViewModel.login()
-            }
+            message.observe(this@LoginActivity, Observer { showMessage(it) })
         }
     }
 

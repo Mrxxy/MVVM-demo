@@ -2,7 +2,7 @@ package com.goldmantis.mvvm.core.base
 
 import android.util.SparseArray
 
-class DataBindingConfig(val layoutId: Int, val viewModelId: Int) {
+class DataBindingConfig(val viewModelId: Int, val layoutId: Int) {
 
     val bindingParams = SparseArray<Any>()
 

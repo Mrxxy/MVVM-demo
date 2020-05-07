@@ -9,10 +9,6 @@
             name="viewModel"
             type="com.goldmantis.mvvm.app.ui.LoginViewModel" />
 
-        <variable
-            name="click"
-            type="com.goldmantis.mvvm.app.ui.LoginActivity.ClickProxy" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="30dp"
-            android:onClick="@{()->click.login()}"
+            android:onClick="@{()->viewModel.login()}"
             android:text="登录"
             android:textColor="#333333"
             android:textSize="16sp"
